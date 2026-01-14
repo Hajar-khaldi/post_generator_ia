@@ -23,15 +23,17 @@ This project requires a Hugging Face API token.
 
 Set it before running the app:
 
-Linux / macOS
+**Linux / macOS**
 ```bash
 export HF_TOKEN=your_huggingface_token
+```
 
-Windows (PowerShell)
+**Windows (PowerShell)**
 ```bash
 setx HF_TOKEN "your_huggingface_token"
+```
 
-Or using Streamlit secrets (.streamlit/secrets.toml):
+**Or using Streamlit secrets (.streamlit/secrets.toml):**
 ```bash
 HF_TOKEN="your_huggingface_token"
 ```
