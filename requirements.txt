@@ -1,0 +1,5 @@
+streamlit
+huggingface_hub
+streamlit-tags
+streamlit-quill
+streamlit-option-menu
