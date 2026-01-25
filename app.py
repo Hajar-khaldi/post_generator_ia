@@ -154,22 +154,7 @@ with col_result:
     # Affichage du post uniquement s'il existe
     if st.session_state.post_text:
         # Aperçu du post avec mise en forme
-        st.markdown(
-            f"""
-            <div style="
-                background-color:#ffffff;
-                padding:20px;
-                border-radius:12px;
-                border:1px solid #ddd;
-                font-size:16px;
-                line-height:1.6;
-            ">
-            {st.session_state.post_text}
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
-
+        st.markdown(st.session_state.post_text)
         st.markdown("### ✏️ Texte du post (édition WYSIWYG)")
         st.write("Vous pouvez modifier le texte ici")
 
