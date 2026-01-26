@@ -1,18 +1,12 @@
-# ===============================
-# Imports
-# ===============================
-
-import os                      # Gestion des variables d'environnement
-import streamlit as st         # Framework UI pour applications web
-from streamlit_tags import st_tags  # Widget pour saisie de mots-clés sous forme de tags
-from huggingface_hub import InferenceClient  # Client pour appeler les modèles Hugging Face
-from streamlit_option_menu import option_menu  # Menu segmenté (LinkedIn / Facebook)
-from streamlit_quill import st_quill  # Éditeur WYSIWYG (rich text)
+import os                      
+import streamlit as st         
+from streamlit_tags import st_tags 
+from huggingface_hub import InferenceClient 
+from streamlit_option_menu import option_menu  
+from streamlit_quill import st_quill 
 
 
-# ===============================
-# Session state initialization
-# ===============================
+
 # Permet de conserver le post généré entre les interactions Streamlit
 if "post_text" not in st.session_state:
     st.session_state.post_text = ""
@@ -28,9 +22,6 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 client = InferenceClient(token=HF_TOKEN)
 
 
-# ===============================
-# Page configuration (UI globale)
-# ===============================
 st.set_page_config(
     page_title="Générateur de posts IA",
     page_icon="🤖",
@@ -39,16 +30,11 @@ st.set_page_config(
 )
 
 
-# ===============================
-# Page title (header)
-# ===============================
 st.title("🚀 Générateur de posts LinkedIn / Facebook")
 st.write("Entrez des mots-clés et générez automatiquement un post optimisé.")
 
 
-# ===============================
-# Layout : Two columns
-# ===============================
+
 # Colonne gauche : formulaire
 # Colonne droite : post généré
 col_form, col_result = st.columns([1, 1])
@@ -78,9 +64,7 @@ Contraintes :
 """
 
 
-# ===============================
-# LEFT COLUMN – Form inputs
-# ===============================
+
 with col_form:
     st.subheader("📝 Paramètres du post")
 
@@ -145,9 +129,7 @@ with col_form:
             st.session_state.post_text = completion.choices[0].message["content"]
 
 
-# ===============================
-# RIGHT COLUMN – Generated post
-# ===============================
+
 with col_result:
     st.subheader("📄 Post généré")
 
